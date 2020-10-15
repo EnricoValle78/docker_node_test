@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-const directoryPath = process.env.DIR_NAME||".";
+const directoryPath = process.env.DIR_NAME||"/app/resources";
 const destinationFile = process.env.DEST_FILE_NAME||null;
 
 
@@ -15,7 +15,8 @@ function readFiles(dirname, onFileContent, onError) {
 	  
 	  if(destinationFile){
 		  const destFilePath = directoryPath+'/'+destinationFile
-		  fs.appendFile(destFilePath, filename, function (err) {
+		  const newLine = filename+"/n"
+		  fs.writeFile(destFilePath, newLine, function (err) {
 			  if (err) throw err;
 			  console.log('Saved!');
 			});
