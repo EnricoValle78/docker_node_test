@@ -15,7 +15,7 @@ function readFiles(dirname, onFileContent, onError) {
 	  
 	  if(destinationFile){
 		  const destFilePath = directoryPath+'/'+destinationFile
-		  const newLine = filename+"/n"
+		  const newLine = filename+"\n"
 		  fs.writeFile(destFilePath, newLine, function (err) {
 			  if (err) throw err;
 			  console.log('Saved!');
