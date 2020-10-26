@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  read:
+    build: readfiles
+    volumes:
+      - ./resources:/app/resources
+    environment:
+      - DIR_NAME=/app/resources
+      - DEST_FILE_NAME=log.txt
+  write:
+    build: writefile
+    volumes:
+      - ./resources:/app/resources
+    environment:
+      - DIR_NAME=/app/resources
+      - DEST_FILE_NAME=pippo
+  easyweb:
+    build: web_easy
+    volumes:
+     - ./resources:/app/resources
+    environment:
+     - PORT=4000
+    ports:
+     - "4000-4100:4000"
